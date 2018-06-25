@@ -1,0 +1,36 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo{
+  display: flex;
+  width: 10%;
+  height: 10%;
+}
+
+.logo-text{
+  font-size: 40px;
+}
+
+.assassins{
+  display: flex;
+  flex-direction: column;
+}
+
+.contracts{
+  display:flex;
+  flex-direction: column;
+}
+
+.image-container{
+  display: flex;
+  flex-direction: row;
+  justify-content:
+}

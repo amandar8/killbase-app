@@ -11,6 +11,7 @@ const env = 'development';
 const config = require(knexPath)[env];
 const knex = require('knex')(config);
 const morgan = require('morgan');
+let cookieParser = require('cookie-parser');
 
 let assassins = require('./routes/assassinroutes.js');
 let codeNames = require('./routes/codenamesroutes.js');
@@ -19,9 +20,13 @@ let clients = require('./routes/clientroutes.js')
 let contracts= require('./routes/contractroutes.js');
 let assassinContracts = require('./routes/assassincontractroutes.js')
 
+app.set('view engine', 'ejs');
+
 app.disable('x-powered-by');
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(cookieParser());
 app.use(morgan('short'));
 
 app.use(express.static(path.join('public')));

@@ -2,30 +2,48 @@
 
 const fs = require('fs');
 const path = require('path');
-const bodyParser = require('body-parser');
+const knexPath = path.join(__dirname, 'knexfile.js');
 const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const port = process.env.PORT || 8000;
 const env = 'development';
 const config = require(knexPath)[env];
 const knex = require('knex')(config);
-const knexPath = path.join(__dirname, 'knexfile.js');
-const port = process.env.PORT || 8000;
-const app = express();
+let assassins = require('./routes/assassinroutes.js');
+let codeNames = require('./routes/codenamesroutes.js');
+let targets = require('./routes/targetroutes.js');
+let clients = require('./routes/clientroutes.js')
+let contracts= require('./routes/contractroutes.js');
+let assassinContracts = require('./routes/assassincontractroutes.js')
 
 app.disable('x-powered-by');
 
 app.use(bodyParser.json());
 
-app.use(express.static(path.join('public')));
+app.use(express.static(path.join('public'));
 
-app.get('/assassins', (req, res) => {
-  console.log(req);
-  knex('assassins').then((x) => {
-    res.send(x);
-  });
-});
+app.use(assassins);
+app.use(codeNames);
+app.use(targets);
+app.use(clients);
+app.use(contracts);
+app.use(assassinContracts);
 
 app.use(function(req, res) {
   res.sendStatus(404);
+});
+
+app.use((err, _req, res, _next) => {
+  if (err.status) {
+    return res
+      .status(err.status)
+      .set('Content-Type', 'text/plain')
+      .send(err.message);
+  }
+
+  console.error(err.stack);
+  res.sendStatus(500);
 });
 
 app.listen(port, function() {

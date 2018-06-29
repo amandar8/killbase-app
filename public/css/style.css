@@ -1,21 +1,27 @@
-a {
-  text-decoration: none;
-  color: black;
+
+body{
+  background-color: black;
+  color: white;
 }
 
-.header{
+/* a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-wrapper{
+  background-color: red;
+}
+
+.nav-container{
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
-.logo{
+.nav-mobile{
   display: flex;
-  width: 10%;
-  height: 10%;
 }
-
-.logo-text{
+.title{
   font-size: 40px;
 }
 
@@ -33,4 +39,4 @@ a {
   display: flex;
   flex-direction: row;
   justify-content:
-}
+} */

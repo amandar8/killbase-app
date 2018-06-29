@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 // get route to retrieve assassins
-router.get('/assassins', (_req, res, next) => {
+router.get('/assassins', (req, res, next) => {
   knex('assassins')
     .orderBy('id')
     .then((assassins) => {

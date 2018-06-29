@@ -10,6 +10,8 @@ const port = process.env.PORT || 8000;
 const env = 'development';
 const config = require(knexPath)[env];
 const knex = require('knex')(config);
+const morgan = require('morgan');
+
 let assassins = require('./routes/assassinroutes.js');
 let codeNames = require('./routes/codenamesroutes.js');
 let targets = require('./routes/targetroutes.js');
@@ -20,8 +22,9 @@ let assassinContracts = require('./routes/assassincontractroutes.js')
 app.disable('x-powered-by');
 
 app.use(bodyParser.json());
+app.use(morgan('short'));
 
-app.use(express.static(path.join('public'));
+app.use(express.static(path.join('public')));
 
 app.use(assassins);
 app.use(codeNames);
@@ -34,7 +37,7 @@ app.use(function(req, res) {
   res.sendStatus(404);
 });
 
-app.use((err, _req, res, _next) => {
+app.use(function(err, req, res, next) {
   if (err.status) {
     return res
       .status(err.status)

@@ -1,5 +1,5 @@
-const config = require('../knexfile.js')['production'];
-const knex = require('knex')(config);
+// const config = require('../knexfile.js')['production'];
+const knex = require('../knex');
 const express = require('express');
 const router = express.Router();
 

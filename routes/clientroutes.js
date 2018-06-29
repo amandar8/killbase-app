@@ -1,7 +1,7 @@
 'use strict';
 
 // const config = require('../knexfile.js')['production'];
-const knex = require('knex');
+const knex = require('../knex');
 const express = require('express');
 const router = express.Router();
 

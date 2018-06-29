@@ -3,16 +3,16 @@
 // const config = require('../knexfile.js')['production'];
 const express = require('express');
 const router = express.Router();
-const knex = require('knex');
+const knex = require('../knex');
 
 router.get('/assassin_contracts', (req, res, next) => {
     knex('assassin_contracts')
-        .orderBy('id')
+        .orderBy('assassin_id')
         .then((assassin_contracts) => {
             res.send(assassin_contracts);
         })
         .catch((err) => {
-            next(err);
+            res.status(500).send(err);
         });
 });
 
@@ -27,7 +27,7 @@ router.get('/assassin_contracts/:id', (req, res, next) => {
             res.send(assassin_contracts);
         })
         .catch((err) => {
-            next(err);
+            res.status(500).send(err);
         });
 });
 
@@ -41,7 +41,7 @@ router.post('/assassin_contracts', (req, res, next) => {
             res.send(assassin_contracts[0]);
         })
         .catch((err) => {
-            next(err);
+            res.status(500).send(err);
         });
 });
 
@@ -65,7 +65,7 @@ router.patch('/assassin_contracts/:id', (req, res, next) => {
             res.send(assassin_contracts[0]);
         })
         .catch((err) => {
-            next(err);
+            res.status(500).send(err);
         });
 });
 
@@ -91,7 +91,7 @@ router.delete('/assassin_contracts/:id', (req, res, next) => {
             res.send(assassin_contract);
         })
         .catch((err) => {
-            next(err);
+            res.status(500).send(err);
         });
 });
 

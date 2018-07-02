@@ -4,11 +4,35 @@ body{
   color: white;
 }
 
-/* a {
+ a {
   text-decoration: none;
   color: white;
 }
 
+.row{
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+.thumbnail {
+  width: 350px;
+  height: 250px;
+}
+
+.caption{
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+
+a:hover{
+  text-decoration: none;
+  color: red;
+}
+
+
+/*
 .nav-wrapper{
   background-color: red;
 }

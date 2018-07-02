@@ -8,12 +8,7 @@ const port = process.env.PORT || 8000;
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
-// const knexPath = path.join(__dirname, 'knexfile.js');
 const cookieParser = require('cookie-parser');
-
-// const env = 'development';
-// const config = require(knexPath)[env];
-// const knex = require('knex')(config);
 
 
 let assassins = require('./routes/assassinroutes');
@@ -23,6 +18,7 @@ let clients = require('./routes/clientroutes');
 let contracts= require('./routes/contractroutes');
 let assassinContracts = require('./routes/assassincontractroutes');
 
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.disable('x-powered-by');

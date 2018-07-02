@@ -8,7 +8,7 @@ router.get('/assassins', (req, res, next) => {
   knex('assassins')
     .orderBy('id')
     .then((assassins) => {
-      res.send(assassins);
+      res.render('assassins', {data:assassins});
     })
     .catch((err) => {
       next(err);

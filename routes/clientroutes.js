@@ -1,6 +1,5 @@
 'use strict';
 
-// const config = require('../knexfile.js')['production'];
 const knex = require('../knex');
 const express = require('express');
 const router = express.Router();
@@ -10,6 +9,7 @@ router.get('/clients', (req, res, next) => {
     knex('clients')
         .orderBy('id')
         .then((clients) => {
+            // res.render('clients', {data:clients});
             res.send(clients);
         })
         .catch((err) => {

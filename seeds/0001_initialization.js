@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
           kills: 72
         },
         {
-          full_name: '',
+          full_name: 'N/A',
           weapon: 'Pistol',
           contact_info: 'ghostdog@gmail.com',
           age: 28,

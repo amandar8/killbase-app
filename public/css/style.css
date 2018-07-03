@@ -1,12 +1,20 @@
 
 body{
-  background-color: black;
+  background-image: url("../images/background.jpg");
+  background-repeat: repeat;
+  height: 100%;
+  width: 100%;
   color: white;
+  font-family: 'Jaldi', sans-serif;
 }
 
  a {
   text-decoration: none;
   color: white;
+}
+
+ul{
+  list-style-type: none;
 }
 
 .row{
@@ -28,10 +36,19 @@ body{
 
 a:hover{
   text-decoration: none;
-  color: red;
+  color: #993300;
 }
 
+.btn-primary{
+  background-color: #993300;
+  border-color: white;
+}
 
+.btn-primary:hover{
+  background-color: #ff0000;
+  border-color: white;
+
+}
 /*
 .nav-wrapper{
   background-color: red;

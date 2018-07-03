@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function (event) {
     let newAssassin = document.getElementById('newAssassin');
 
@@ -21,3 +22,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
       }
 
 });
+
